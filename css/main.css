@@ -426,7 +426,8 @@ ul.secundario,
 .contenido-cena .secundario span,
 .seccion.cafeteria h2,
 .seccion.cafeteria span,
-ul.secundario h4  {
+ul.secundario h4,
+ul.primario span {
   color: white;
 }
 .body-carta {

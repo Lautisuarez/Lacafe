@@ -294,22 +294,18 @@ form legend {
 }
 @media (min-width: 768px) {
   .contenedor-campo {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 50%;
+    margin: 0 auto;
   }
 }
 .campo {
-  display: block;
-  margin-bottom: 1rem;
-}
-.campo label {
-  display: inline-block;
+  margin-bottom: 5rem;
   text-align: center;
-  margin-bottom: 1.6rem;
 }
 .campo:last-of-type {
-  align-items: unset;
+  margin: 0;
 }
 @media (min-width: 768px) {
   .campo {
@@ -329,10 +325,20 @@ textarea {
   .campo input,
   textarea {
     display: inline-block;
-    width: 50%;
+    width: 100%;
+  }
+  .campo input {
+    height: 5rem;
   }
   textarea {
     margin-bottom: -2rem;
+  }
+  .campo label {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;
   }
 }
 .btn {
@@ -346,10 +352,14 @@ textarea {
   width: 100%;
 }
 @media (min-width: 768px) {
-  .btn {
-    width: unset;
-    margin-right: 50%;
+  .btn-form {
+    margin: 0 auto;
+    width: 100%;
   }
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.932);
 }
 
 /* FOOTER */
@@ -426,8 +436,7 @@ ul.secundario,
 .contenido-cena .secundario span,
 .seccion.cafeteria h2,
 .seccion.cafeteria span,
-ul.secundario h4,
-ul.primario span {
+ul.secundario h4  {
   color: white;
 }
 .body-carta {

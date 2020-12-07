@@ -603,6 +603,10 @@ ul.secundario h4  {
   grid-column: 1/2 !important;
   margin: 0;
 }
+.click-me {
+  margin-top: 1rem;
+  color: white;
+}
 /* ALMUERZO/CENA */
 .cena {
   background-color: white;

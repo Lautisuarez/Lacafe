@@ -122,7 +122,15 @@
 							<ul>
 								<a class="comida-info" href="#comida<?php echo $comida['id']; ?>">
 									<li class="primario">
-										<h4><?php echo $comida['titulo']; ?></h4>
+										<h4>
+											<?php 
+												echo $comida['titulo']; 
+												if($i==0){ ?>
+													<div class="click-me">
+														<p>Click en cada menú para más información</p>
+													</div>
+												<?php } ?>
+										</h4>
 										<span>$<?php echo $comida['precio']; ?></span>
 									</li>
 								</a>

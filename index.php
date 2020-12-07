@@ -37,33 +37,44 @@
         <h1>Vení a disfrutar de buena comida en LACÁFE.</h1>
     </main>
 
+    <!-- PHP AND MYSQL -->
+	<?php 
+		try {
+			require_once('includes/funciones/db_connect.php');
+			$sql = 'SELECT * FROM `comidas` ';
+
+			$resultado = $conn->query($sql);
+		} catch(\Exception $e) {
+			echo $e->getMessage();
+		}
+	?>
+	<?php  
+		$comidas = array();
+		// Muestra los resultados de la consulta SQL
+		while ($eventos = $resultado->fetch_assoc()) {
+			$evento = array(
+                'url_img' => $eventos['url_imagen'],
+				'titulo' => $eventos['titulo_imagen'],
+				'descripcion' => $eventos['descripcion_imagen'],
+				'id' => $eventos['id_comida']
+			);
+			
+            $comidas[] = $evento; // Lo agrupamos por fecha
+		} 
+	?>
+
     <!-- NOSOTROS -->
     <section class="site-nosotros" id="nosotros">
         <div class="contenedor">
             <h2 class="separador">Sobre Nosotros</h2>
             <div class="comidas">
-                <a href="#" class="comida">
-                    <div class="imagen" style="background-image: url(img/torta.jpeg); background-position: center top;">
-                    </div>
-                    <h3>Torta</h3>
-                    <p>Quien no se tienta para comer un pedazo de torta!? Vení probala.</p>
-                </a>
-                <a href="#" class="comida">
-                    <div class="imagen" style="background-image: url(img/sandwich.jpeg);"></div>
-                    <h3>Sandwich</h3>
-                    <p>Excelentes sandwiches para todos los gustos!.</p>
-                </a>
-                <a href="#" class="comida">
-                    <div class="imagen" style="background-image: url(img/delicias.jpeg);"></div>
-                    <h3>Delicias</h3>
-                    <p>Variedades de delicias para acompañarlas con tu merienda o desayuno!.</p>
-                </a>
-                <a href="#" class="comida">
-                    <div class="imagen"
-                        style="background-image: url(img/cafe.png); background-position: center bottom;"></div>
-                    <h3>Café</h3>
-                    <p>Nuestro mayor fuerte, el café! Quien quiere uno?.</p>
-                </a>
+                <?php foreach($comidas as $comida){ ?>
+                        <a href="#" class="comida">
+                            <div class="imagen" style="background-image: url(<?php echo $comida['url_img']; ?>); background-position: center center;"></div>
+                            <h3><?php echo $comdia['titulo']; ?></h3>
+                            <p><?php echo $comida['descripcion']; ?></p>
+                        </a>
+					<?php } ?>
             </div>
         </div>
     </section>
@@ -88,7 +99,7 @@
                         </div>
                         <div class="campo">
                             <label for="correo">Correo:
-                                <input type="mail" name="correo" id="correo" placeholder="Correo" required>
+                                <input type="email" name="correo" id="correo" placeholder="Correo" required>
                             </label>
                         </div>
                         <div class="campo">

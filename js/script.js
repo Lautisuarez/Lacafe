@@ -1,11 +1,5 @@
-/*var _isOS = navigator.userAgent.match(/(iPod|iPhone|iPad)/);
-if (_isOS) {
-    $('body').addClass('is-os');
-} */
 (function() {
     "use strict";
-
-    console.log("HOla");
 
     document.addEventListener('DOMContentLoaded', function() {
         function getMobileOperatingSystem() {

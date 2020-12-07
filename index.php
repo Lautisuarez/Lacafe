@@ -23,9 +23,9 @@
     <!-- HEADER -->
     <header class="site-header">
         <div class="contenedor header">
-            <a href="index.html"><img src="img/logo.jpg" alt="Logotipo"></a>
+            <a href="index.php"><img src="img/logo.jpg" alt="Logotipo"></a>
             <nav class="nav">
-                <a href="#inicio">Inicio</a>
+                <a href="index.php">Inicio</a>
                 <a href="carta.php">Nuestra Carta</a>
                 <a href="#nosotros">Sobre Nosotros</a>
                 <a href="#contacto">Contacto</a>

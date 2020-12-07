@@ -10,7 +10,7 @@
 				<div class="footer">
 					<h3>Contacto</h3>
 					<i class="fas fa-phone-alt"></i>
-					<a href="https://lacafe-negocio.netlify.app/#contacto">Contáctanos</a>
+					<a href="index.php#contacto">Contáctanos</a>
 				</div>
 			</div>
 		</div>

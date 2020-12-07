@@ -71,29 +71,35 @@
     <!-- CONTACTO -->
     <section class="contacto" id="contacto">
         <div class="contenedor">
-            <form action="#">
+            <form action="formulario.php" method="post">
                 <h2 class="separador">Contacto</h2>
                 <legend>Contactános llenando todos los campos</legend>
                 <div class="contenedor-campo">
-                    <div class="campo">
-                        <label>Nombre: </label>
-                        <input type="text" name="nombre" placeholder="Nombre" required>
+                    <div>
+                        <div class="campo">
+                            <label for="nombre">Nombre Completo: 
+                                <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                            </label>
+                        </div>
+                        <div class="campo">
+                            <label for="telefono">Teléfono:
+                                <input type="tel" name="telefono" id="telefono" placeholder="Teléfono" required>
+                            </label>
+                        </div>
+                        <div class="campo">
+                            <label for="correo">Correo:
+                                <input type="mail" name="correo" id="correo" placeholder="Correo" required>
+                            </label>
+                        </div>
+                        <div class="campo">
+                            <label for="mensaje">Mensaje:
+                                <textarea name="mensaje" rows="8" cols="40" id="mensaje"></textarea>
+                            </label>
+                        </div>
                     </div>
-                    <div class="campo">
-                        <label>Teléfono:</label>
-                        <input type="tel" name="telefono" placeholder="Teléfono" required>
+                    <div class="btn-form">
+                        <input type="submit" value="Enviar" class="btn">
                     </div>
-                    <div class="campo">
-                        <label>Correo:</label>
-                        <input type="mail" name="correo" placeholder="Correo" required>
-                    </div>
-                    <div class="campo">
-                        <label>Mensaje:</label>
-                        <textarea></textarea>
-                    </div>
-                </div>
-                <div class="clearfix">
-                    <input type="submit" value="Enviar" class="btn">
                 </div>
             </form>
         </div>

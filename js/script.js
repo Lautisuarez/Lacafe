@@ -41,7 +41,6 @@
 
 // DOCUMENT READY
 $(function(){
-
     if(document.querySelector('#panificacion')){
         // Menú fijo
         var barraAltura = $('.site-header').innerHeight();
@@ -69,7 +68,4 @@ $(function(){
             return false;
         });
     }
-
-    // Menú de comidas
-    $('.comida-info').colorbox({inline:true, width:"90%"});
 }); 

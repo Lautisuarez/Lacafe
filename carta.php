@@ -120,38 +120,25 @@
 					foreach($comidas['Desayuno/Merienda'] as $comida){ 
 						if($i%2==0){ ?>
 							<ul>
-								<a class="comida-info" href="#comida<?php echo $comida['id']; ?>">
-									<li class="primario">
-										<h4>
-											<?php 
-												echo $comida['titulo']; 
-												if($i==0){ ?>
-													<div class="click-me">
-														<p>Click en cada menú para más información</p>
-													</div>
-												<?php } ?>
-										</h4>
-										<span>$<?php echo $comida['precio']; ?></span>
-									</li>
-								</a>
+								<li class="primario">
+									<h4><?php echo $comida['titulo']; ?></h4>
+									<span>$<?php echo $comida['precio']; ?></span>
+									<?php if($comida['descripcion'] != ""){ ?>
+									<p><?php echo $comida['descripcion'] ?></p>
+									<?php } ?>
+								</li>
 							</ul>
 						<?php } else { ?>
 							<ul>
-								<a class="comida-info" href="#comida<?php echo $comida['id']; ?>">
-									<li class="secundario">
-										<h4><?php echo $comida['titulo']; ?></h4>
-										<span>$<?php echo $comida['precio']; ?></span>
-									</li>
-								</a>
+								<li class="secundario">
+									<h4><?php echo $comida['titulo']; ?></h4>
+									<span>$<?php echo $comida['precio']; ?></span>
+									<?php if($comida['descripcion'] != ""){ ?>
+									<p><?php echo $comida['descripcion'] ?></p>
+									<?php } ?>
+								</li>
 							</ul>
 						<?php } $i++; ?>
-						<div style="display: none;">
-							<div class="comida-info" id="comida<?php echo $comida['id']; ?>">
-								<h4><?php echo $comida['titulo']; ?></h4>
-								<p><?php echo $comida['descripcion']; ?></p>
-								<span>$<?php echo $comida['precio']; ?></span>
-							</div>
-						</div>
 					<?php } ?>
 			</div>
 		</div>
@@ -163,48 +150,33 @@
 		<div class="contenido-cena">
 			<img src="img/pizzaEdit.png" alt="">
 			<a class="comida-info" href="#comidapizza">
-				<ul class="secundario">
-					<li><h4>Pizzas</h4></li>
+				<ul class="secundario pizza">
+					<li><h4>Pizzas</h4> <span>Enteras</span><span>Medias</span></li>
+					<li>Especial(muzza, jamón y morrón) <span>$340</span> <span>$200</span></li>
+					<li>Muzzarella con roquefort <span>$380</span> <span>$230</span></li>
+					<li>Muzzarella con jamón <span>$420</span> <span>$250</span></li>
+					<li>Muzzarella con anchoas <span>$440</span><span>$260</span></li>
+					<li>Muzzarella con huevo <span>$360</span> <span>$220</span></li>
+					<li>Muzzarella con rúcula y jamón crudo <span>$400</span><span>$240</span></li>
+					<li>Palmitas(muzza, jamón y oliva negra) <span>$440</span><span>$260</span></li>
+					<li>Fugazzeta <span>$360</span> <span>$220</span></li>
 				</ul>
 			</a>
-			<div style="display: none;">
-				<div class="comida-info" id="comidapizza">
-					<ul class="pizza">
-						<li><h4>Pizzas</h4> <span>Enteras</span><span>Medias</span></li>
-						<li>Especial(muzza, jamón y morrón) <span>$340</span> <span>$200</span></li>
-						<li>Muzzarella con roquefort <span>$380</span> <span>$230</span></li>
-						<li>Muzzarella con jamón <span>$420</span> <span>$250</span></li>
-						<li>Muzzarella con anchoas <span>$440</span><span>$260</span></li>
-						<li>Muzzarella con huevo <span>$360</span> <span>$220</span></li>
-						<li>Muzzarella con rúcula y jamón crudo <span>$400</span><span>$240</span></li>
-						<li>Palmitas(muzza, jamón y oliva negra) <span>$440</span><span>$260</span></li>
-						<li>Fugazzeta <span>$360</span> <span>$220</span></li>
-					</ul>
-				</div>
-			</div>
 			<?php 
 				$i = 0;
 				foreach($comidas['Almuerzo/Cena'] as $comida){ 
 					if($i%2==0){ ?>
-						<a class="comida-info" href="#comida<?php echo $comida['id']; ?>">
-							<ul class="terciario">
-								<li><h4><?php echo $comida['titulo']; ?></h4> <span>$<?php echo $comida['precio'] ?></span> </li>
-							</ul>
-						</a>
+						<ul class="terciario">
+							<li><h4><?php echo $comida['titulo']; ?></h4> <span>$<?php echo $comida['precio'] ?></span> </li>
+						</ul>
 					<?php } else { ?>
-						<a class="comida-info" href="#comida<?php echo $comida['id']; ?>">
-							<ul class="secundario">
-								<li><h4><?php echo $comida['titulo']; ?></h4> <span>$<?php echo $comida['precio'] ?></span> </li>
-							</ul>
-						</a>
+						<ul class="secundario">
+							<li><h4><?php echo $comida['titulo']; ?></h4> <span>$<?php echo $comida['precio'] ?></span> </li>
+							<?php if($comida['descripcion'] != ""){ ?>
+							<p><?php echo $comida['descripcion'] ?></p>
+							<?php } ?>
+						</ul>
 					<?php } $i++; ?>
-					<div style="display: none;">
-						<div class="comida-info" id="comida<?php echo $comida['id']; ?>">
-							<h4><?php echo $comida['titulo']; ?></h4>
-							<p><?php echo $comida['descripcion']; ?></p>
-							<span>$<?php echo $comida['precio']; ?></span>
-						</div>
-					</div>
 				<?php } ?>
 		</div>
 	</section>
@@ -217,25 +189,17 @@
 				$i = 0;
 				foreach($comidas['Sandwiches'] as $comida){ 
 					if($i%2==0){ ?>
-						<a class="comida-info" href="#comida<?php echo $comida['id']; ?>">
-							<ul class="terciario">
-								<li><h4><?php echo $comida['titulo']; ?></h4> <span>$<?php echo $comida['precio'] ?></span> </li>
-							</ul>
-						</a>
+						<ul class="terciario">
+							<li><h4><?php echo $comida['titulo']; ?></h4> <span>$<?php echo $comida['precio'] ?></span> </li>
+						</ul>
 					<?php } else { ?>
-						<a class="comida-info" href="#comida<?php echo $comida['id']; ?>">
-							<ul class="primario">
-								<li><h4><?php echo $comida['titulo']; ?></h4> <span>$<?php echo $comida['precio'] ?></span> </li>
-							</ul>
-						</a>
+						<ul class="primario">
+							<li><h4><?php echo $comida['titulo']; ?></h4> <span>$<?php echo $comida['precio'] ?></span> </li>
+							<?php if($comida['descripcion'] != ""){ ?>
+							<p><?php echo $comida['descripcion'] ?></p>
+							<?php } ?>
+						</ul>
 					<?php } $i++; ?>
-					<div style="display: none;">
-						<div class="comida-info" id="comida<?php echo $comida['id']; ?>">
-							<h4><?php echo $comida['titulo']; ?></h4>
-							<p><?php echo $comida['descripcion']; ?></p>
-							<span>$<?php echo $comida['precio']; ?></span>
-						</div>
-					</div>
 				<?php } ?>
 		</div>
 	</section>

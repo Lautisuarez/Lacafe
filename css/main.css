@@ -572,7 +572,7 @@ ul.secundario h4  {
 }
 .primario {
   background-color: rgb(61, 35, 22);
-  padding: 3rem;
+  padding: 2.5rem;
   border-radius: 3rem;
 }
 @media (min-width: 768px) {
@@ -583,7 +583,7 @@ ul.secundario h4  {
 .secundario {
   background-color: #d1a064;
   border-radius: 5rem;
-  padding: 3rem;
+  padding: 2.5rem;
 }
 @media (min-width: 768px) {
   .secundario {
@@ -593,7 +593,7 @@ ul.secundario h4  {
 .terciario {
   background-color: white;
   border-radius: 5rem;
-  padding: 3rem;
+  padding: 2.5rem;
 }
 .pequenio {
   grid-template-columns: 3fr 1fr !important;
@@ -613,7 +613,7 @@ ul.secundario h4  {
   color: black;
 }
 .pizza {
-  padding: 0;
+  padding: 2rem;
 }
 .pizza li {
   display: grid;
@@ -725,32 +725,6 @@ ul.secundario h4,
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
-}
-
-/* MENU COMIDAS */
-div#colorbox {
-  border-radius: 3rem;
-}
-#cboxClose {
-  top: -2rem!important;
-  right: 1.2rem!important;
-}
-#cboxWrapper {
-  background-color: rgb(61, 35, 22);
-}
-#cboxLoadedContent {
-  border-color: rgb(61, 35, 22)!important;
-}
-div.cboxElement {
-  padding: 1rem;
-  background-color: rgb(61, 35, 22);
-  text-align: center;
-  margin-top: -4rem;
-}
-div.cboxElement h4,
-div.cboxElement span {
-  font-size: 2.6rem;
-  color: #d1a064;
 }
 
 /* FORMULARIO CONTACTO */

@@ -585,6 +585,9 @@ ul.secundario h4  {
   border-radius: 5rem;
   padding: 2.5rem;
 }
+.secundario .pizza {
+  padding: 3.5rem!important;
+}
 @media (min-width: 768px) {
   .secundario {
     height: auto;

@@ -598,6 +598,9 @@ ul.secundario h4  {
   border-radius: 5rem;
   padding: 2.5rem;
 }
+.contenido-sandwich .terciario p {
+  color: #d1a064;
+}
 .pequenio {
   grid-template-columns: 3fr 1fr !important;
   grid-template-rows: 1fr !important;

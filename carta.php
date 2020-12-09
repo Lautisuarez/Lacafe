@@ -191,6 +191,9 @@
 					if($i%2==0){ ?>
 						<ul class="terciario">
 							<li><h4><?php echo $comida['titulo']; ?></h4> <span>$<?php echo $comida['precio'] ?></span> </li>
+							<?php if($comida['descripcion'] != ""){ ?>
+							<p><?php echo $comida['descripcion'] ?></p>
+							<?php } ?>
 						</ul>
 					<?php } else { ?>
 						<ul class="primario">

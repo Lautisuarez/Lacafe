@@ -1,6 +1,14 @@
+:root {
+  --primario: rgb(61, 35, 22);
+  --primarioTransparente: rgba(61,35,22,.8);
+  --secundario: #d1a064;
+  --secundarioTransparente: rgba(209,160,100,.8);
+  --terciario: white;
+  --terciarioTransparente: rgba(255,255,255,.8);
+}
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 62.5%; 
 }
 *,
 *:before,
@@ -8,9 +16,10 @@ html {
   box-sizing: inherit;
 }
 body {
+  color: white;
   font-size: 1.6rem;
   background-color: #e1e1e1;
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
 body.footer-fijo {
   display: flex;
@@ -24,27 +33,42 @@ body.footer-fijo main {
 img {
   max-width: 100%;
 }
-h1 {
-  margin: 0;
-}
 a {
   text-decoration: none;
-  color: #000000;
+  color: white;
 }
-input:not([type="submit"]),
-textarea {
-  border: 1px solid #333;
-  border-radius: 0.4rem;
-  margin: 0 auto;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
 }
 ul {
   list-style: none;
 }
-
+h2 {
+  font-family: 'Sansita Swashed', cursive;
+}
 /* UTILIDADES */
 .contenedor {
-  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
+}
+.seccion {
+  margin: 1rem auto;
+  padding: 2rem;
+  border-radius: 5rem;
+}
+@media (min-width: 768px) {
+  .seccion {
+    width: 50%;
+  }
+}
+.ocultar {
+  display: none;
+}
+.fondo-fijo {
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .separador::after {
   content: "";
@@ -57,117 +81,47 @@ ul {
   width: 100px;
   display: block;
 }
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  /* 1 */
-  display: table;
-  /* 2 */
+.isIOS {
+  background-attachment: unset!important;
 }
-
-.clearfix:after {
-  clear: both;
+.swal2-popup {
+  font-size: 1.7rem!important;
+  height: 40rem;
+  width: 50rem!important;
 }
-
 /* HEADER */
-.site-header {
+.site-header{
   background-color: black;
+}
+.header a img {
+  display: block;
+  width: 40%;
+  margin: auto auto;
+}
+@media (min-width: 768px) {
+  .header a img {
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+  }
+}
+.nav {
+  text-align: center;
+  margin: 2rem 0;
+}
+.nav a {
+  padding: .3rem;
+}
+@media (min-width: 768px) {
+  .nav a {
+    padding: 3rem;
+  }
 }
 .fixed {
   position: fixed;
-  width: 100%;
   top: 0;
   left: 0;
-  z-index: 2;
-}
-@media (min-width: 992px) {
-  .header {
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    align-items: center;
-    justify-items: end;
-  }
-}
-.header img {
-  display: block;
-  margin: 1rem auto;
-  width: 30%;
-}
-@media (min-width: 992px) {
-  .header img {
-    width: 100%;
-    margin: 1rem 0;
-  }
-}
-.nav-carta {
-  margin-top: 3rem;
-}
-.nav-carta > div  {
-  justify-content: center;
-}
-@media (min-width: 768px) {
-  .nav-carta > div {
-    margin: 2rem 0;
-  }
-}
-.nav-carta > div a {
-  margin-right: .8rem;
-  font-size: 1.6rem;
-}
-@media (min-width: 370px) {
-  .nav-carta > div a {
-    margin-right: 2rem;
-  }
-}
-@media (min-width: 992px) {
-  .nav-carta {
-    display: flex;
-  }
-  .nav-carta > div a {
-    margin-right: 5rem;
-    font-size: 1.8rem;
-  }
-}
-.ocultar {
-  display: none;
-}
-@media (min-width: 1500px) {
-  .ocultar {
-    display: flex;
-  }
-  .flecha {
-    display: none!important;
-  }
-}
-.nav a {
-  font-family: "Ubuntu", sans-serif !important;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1.8rem;
-  display: block;
-  text-align: center;
-  margin-bottom: 2rem;
-  transition: .5s;
-}
-@media (min-width: 992px) {
-  .nav a {
-    display: inline-block;
-    margin: 0 3rem 0 0;
-  }
-  .nav {
-    text-align: right;
-  }
-}
-.nav a:last-of-type {
-  margin-right: 0;
-}
-@media (min-width: 992px) {
-  .nav a:last-of-type {
-    margin-right: 3rem;
-  }
-}
-.nav a:hover {
-  color: rgba(255, 255, 255, 0.5);
+  right: 0;
 }
 /* HERO */
 .parallax::before {
@@ -186,7 +140,6 @@ ul {
 }
 .hero {
   position: relative;
-  height: 70vh;
 }
 .hero::before {
   background-image: url(../img/tostado.jpeg);
@@ -206,11 +159,12 @@ ul {
 
 /* NOSOTROS */
 .site-nosotros {
+  color: black;
   margin: 1rem;
   background-color: #ffffff;
   border: 4px solid #212121;
   border-radius: 0.5rem;
-  box-shadow: 0.2rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
+  padding: 1rem;
 }
 @media (min-width: 768px) {
   .site-nosotros {
@@ -218,13 +172,15 @@ ul {
   }
 }
 .site-nosotros h2 {
+  color: black;
   text-align: center;
   font-size: 3rem;
+  margin-top: 1rem;
 }
 .comidas {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  margin: 2rem;
 }
 @media (min-width: 990px) {
   .comidas {
@@ -233,13 +189,14 @@ ul {
   }
 }
 .comida {
+  color: black;
   border: 3px solid black;
   border-radius: 0.5rem;
   text-align: center;
   margin-bottom: 5rem;
 }
 .comida p {
-  font-size: 2.6rem;
+  font-size: 2rem;
   padding: 1rem;
 }
 @media (min-width: 769px) {
@@ -248,9 +205,10 @@ ul {
   }
 }
 .comida h3 {
+  color: black;
   border-bottom: 1px solid #333;
-  padding-bottom: 1rem;
-  font-size: 3.2rem;
+  padding: 1rem 0;
+  font-size: 3rem;
 }
 .imagen {
   height: 400px;
@@ -264,28 +222,10 @@ ul {
 }
 
 /* CONTACTO */
-form {
-  background-color: #ffffff;
-  text-align: left;
-  padding: 2rem;
-  border-radius: 1rem;
-  margin: 2rem -1rem -1rem -1rem;
-  border: 5px solid black;
-  box-shadow: 0.2rem 0.4rem 0.8rem rgba(0, 0, 0, 0.5);
-  font-size: 2.6rem;
-}
-@media (min-width: 769px) {
-  form {
-    font-size: 1.6rem;
-    margin: 0;
-  }
-}
-form h2 {
-  text-align: center;
-}
 form legend {
-  font-size: 2rem;
-  margin: 0 0 3rem 5rem;
+  margin: 4rem auto;
+  font-weight: bold;
+  font-size: 3rem;
 }
 .contenedor-campo {
   display: flex;
@@ -301,11 +241,8 @@ form legend {
   }
 }
 .campo {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   text-align: center;
-}
-.campo:last-of-type {
-  margin: 0;
 }
 @media (min-width: 768px) {
   .campo {
@@ -335,7 +272,7 @@ textarea {
   }
   .campo label {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 5fr;
     width: 100%;
     margin: 0 auto;
     text-align: left;
@@ -348,7 +285,6 @@ textarea {
   border-radius: 0.4rem;
   padding: 1rem;
   float: right;
-  margin-top: 2rem;
   width: 100%;
 }
 @media (min-width: 768px) {
@@ -365,7 +301,6 @@ textarea {
 /* FOOTER */
 footer {
   background-color: #333;
-  margin-top: 3rem;
   font-size: 2rem;
 }
 @media (min-width: 769px) {
@@ -383,7 +318,7 @@ footer {
   }
 }
 .footer {
-  padding: 1rem;
+  padding: 3rem 0;
   color: rgb(194, 194, 194);
   text-align: center;
 }
@@ -391,11 +326,11 @@ footer {
   color: white;
   text-decoration: underline;
 }
-.footer-iconos a {
+.footer a i {
   font-size: 5rem;
   margin-right: 2rem;
 }
-.footer-iconos a:last-of-type {
+.footer-iconos a:last-of-type i {
   margin-right: 0;
 }
 .copyright {
@@ -405,341 +340,238 @@ footer {
   padding: 1rem;
 }
 
-/* PÁGINAS INTERNAS */
-/* Carta */
-.seccion.cafeteria p,
-.seccion.dulces p,
-.contenido-desayuno li span,
-.desayuno h2,
-.secundario h4,
-ul.secundario,
-.terciario h4,
-.terciario span,
-.con-alcohol h4,
-.con-alcohol h3 {
-  color: rgb(61, 35, 22);
+/** CONTENIDO PRINCIPAL **/
+.panificacion {
+  background-color: var(--primarioTransparente);
 }
-.seccion.panificacion h2,
-.seccion.panificacion span,
-.seccion.dulces h2,
-.seccion.dulces span,
-.primario h4,
-.contenido-desayuno .primario span,
-.cena h2,
-.terciario li,
-.contenido-promo h2,
-.promociones li span,
-.sin-alcohol span,
-.sin-alcohol h2 {
-  color: #d1a064;
+#panificacion span,
+#panificacion h4 {
+  font-size: 2.2rem;
+  font-weight: bold;
 }
-.contenido-cena .secundario span,
-.seccion.cafeteria h2,
-.seccion.cafeteria span,
-ul.secundario h4  {
-  color: white;
+.dulces {
+  background-color: var(--terciarioTransparente);
 }
-.body-carta {
-  font-family: "Oswald", sans-serif;
-  font-size: 1.8rem;
-  color: white;
+.cafeteria {
+  background-color: var(--secundarioTransparente);
+  margin-bottom: 3rem;
 }
-.contenido-carta {
-  box-shadow: 0.1rem 0.1rem 0.4rem rgba(0, 0, 0, 0.5);
-  padding: 2rem;
+.dulces h2, .dulces p span,
+.cafeteria p {
+  color: var(--primario);
 }
-.fondo-carta {
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-attachment: fixed;
+.dulces p,
+.panificacion h2, .panificacion p span {
+  color: var(--secundario);
 }
-@media (min-width: 768px) {
-  .contenido-carta {
-    margin: 3rem;
-    border-radius: 1rem;
-  }
-  .fondo-carta {
-    background-attachment: unset;
-    background-size: cover;
-  }
+.panificacion p,
+.cafeteria h2, .cafeteria p span {
+  color: var(--terciario);
 }
-.isIOS {
-  background-attachment: unset!important;
+.main > div h2 {
+  text-align: center;
+  font-size: 2.6rem;
 }
 .contenido-principal p {
   display: grid;
-  grid-template-columns: 4fr 1fr;
-  column-gap: .5rem;
-}
-.contenido-principal span,
-.contenido-desayuno li span,
-.contenido-cena span {
-  font-size: 2.6rem;
-  font-weight: bold;
-  text-align: right;
-}
-.seccion {
-  padding: 0 3rem 3rem 3rem;
-  margin: 2rem 2rem 0 2rem;
-}
-@media (min-width: 768px) {
-  .seccion,
-  .desayuno {
-    padding: 0 3rem 3rem 3rem;
-    margin: 5rem 5rem 2rem 5rem;
-  }
-}
-.seccion h2,
-.desayuno h2,
-.cena h2,
-.sandwich h2,
-.promos h2,
-.sin-alcohol h2 {
-  font-family: "Sansita Swashed", cursive;
-  border-radius: 1rem;
-  padding: 1rem;
-  text-align: center;
-  margin: 0 0 1rem 0;
-  font-size: 3rem;
-}
-@media (min-width: 768px) {
-  .seccion h2 {
-    font-size: 5rem;
-    margin: 0 0 3rem 0;
-    text-align: left;
-  }
-}
-.seccion p {
-  font-size: 2rem;
-}
-.seccion.cafeteria {
-  background-color: rgba(209, 160, 100, 0.8);
-  border-radius: 0 0 5rem 5rem;
-}
-.seccion.panificacion {
-  background-color: rgba(61, 35, 22, 0.8);
-  border-radius: 5rem 5rem 0 0;
-}
-.seccion.dulces {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 0 5rem 0 5rem;
-}
-/* Desayuno y merienda */
-.desayuno img,
-.cena img,
-.sandwich img {
-  height: 15rem;
-  width: 15rem;
-  display: block;
-  margin: 0 auto;
-}
-.imgAlto {
-  height: 20rem!important;
-  width: 15rem!important;
-}
-.contenido-desayuno ul {
-  padding: 0;
-}
-@media (min-width: 990px) {
-  .contenido-desayuno,
-  .contenido-cena,
-  .contenido-sandwich {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 5rem;
-  }
-}
-.contenido-desayuno li,
-.contenido-cena ul li,
-.contenido-sandwich ul li {
-  display: grid;
   grid-template-columns: 5fr 1fr;
-  gap: .5rem;
-  align-items: center;
+  font-weight: bold;
 }
-.contenido-desayuno li h4 {
-  margin: 0;
-  font-size: 2.6rem;
-}
-.contenido-desayuno li p {
-  font-size: 1.6rem;
-  margin: 0;
-}
-.primario {
-  background-color: rgb(61, 35, 22);
-  padding: 2.5rem;
-  border-radius: 3rem;
-}
-@media (min-width: 768px) {
-  .primario {
-    height: auto;
-  }
-}
-.secundario {
-  background-color: #d1a064;
-  border-radius: 5rem;
-  padding: 2.5rem;
-}
-.secundario.pizza {
-  padding: 3.5rem!important;
-}
-@media (min-width: 768px) {
-  .secundario {
-    height: auto;
-  }
-}
-.terciario {
-  background-color: white;
-  border-radius: 5rem;
-  padding: 2.5rem;
-}
-.contenido-sandwich .terciario p {
-  color: #d1a064;
-}
-.pequenio {
-  grid-template-columns: 3fr 1fr !important;
-  grid-template-rows: 1fr !important;
-}
-.pequenio h4 {
-  grid-column: 1/2 !important;
-  margin: 0;
-}
-.click-me {
-  margin-top: 1rem;
-  color: white;
-}
-/* ALMUERZO/CENA */
-.cena {
-  background-color: white;
-  color: black;
-}
-.pizza {
+
+/** CONTENIDO SECUNDARIO **/
+.contenido-carta {
   padding: 2rem;
 }
-.pizza li {
-  display: grid;
-  padding-bottom: 2rem; 
-  grid-template-columns: 2fr 1fr 1fr!important;
-  align-items: center;
-  column-gap: 2rem;
-}
-/* SANDWICHES */
-.sandwich {
-  background-color: rgb(61, 35, 22);
-  color: white;
-}
-.contenido-sandwich li h4,
-.contenido-sandwich li span,
-.terciario h4,
-.terciario span,
-ul.secundario h4,
-.contenido-promo h2,
-.promociones li span,
-.sin-alcohol span,
-.con-alcohol span {
-  font-weight: bold;
-  margin: 0 0 .5rem 0;
+.contenido-carta h2 {
+  text-align: center;
+  color: var(--terciario);
   font-size: 2.6rem;
 }
-
-/* PROMOCIONES */
-.promos {
-  background-image: url(../img/foto5.jpeg);
+.contenido-carta h4,
+.contenido-carta span {
+  font-size: 2.2rem;
+  font-weight: bold;
 }
-.contenido-promo {
-  background-color: rgba(255, 255, 255, 0.8);
-  background-size: 20rem!important;
-  color: rgb(61, 35, 22);
-  border-radius: 1rem;
-  padding: 1rem;
+.contenido ul {
+  margin: 0rem 0;
 }
-@media (min-width: 768px) {
-  .contenido-promo {
-    margin: 0 20%;
-  }
-}
-@media (min-width: 992px) {
-  .contenido-promo {
-    margin: 0 30%;
-  }
-}
-.promociones ul {
+.opciones {
   padding: 0;
 }
-.promociones ul li {
+.opciones li {
   display: grid;
-  grid-template-columns: 5fr 1fr;
-  column-gap: 2rem;
+  grid-template-columns: 4fr 1fr;
+  row-gap: .5rem;
+  column-gap: 1.5rem;
   align-items: center;
-  padding: 1rem;
-  border-top: 1px rgb(61, 35, 22) solid;
-  border-bottom: 1px rgb(61, 35, 22) solid;
-  border-radius: 1rem;
+  padding: 3rem;
+  border-radius: 3rem;
+}
+.opciones li p {
+  grid-column: 1/-1;
+  font-weight: bold;
+}
+.primario {
+  background-color: var(--primario);
+}
+.secundario {
+  background-color: var(--secundario);
+}
+.terciario {
+  background-color: var(--terciario);
+}
+.terciario h4, .terciario span,
+.secundario p {
+  color: var(--primario);
+}
+.primario h4, .primario span,
+.terciario p {
+  color: var(--secundario);
+}
+.secundario h4, .secundario span,
+.primario p {
+  color: var(--terciario);
+}
+#cena h2 {
+  color: var(--primario);
 }
 
-/* BEBIDAS */
-.contenido-bebidas {
-  background-image: url(../img/licuado.jpeg);
+/*** Promociones ***/
+.promociones {
+  background-color: var(--terciarioTransparente);
+  color: var(--primario);
+  border-radius: 3rem 0 3rem 0;
+  padding: 2rem;
 }
-@media (min-width: 768px) {
-  .bebidas {
-    margin: 0 20%;
+.promociones h2 {
+  color: var(--primario);
+  margin-bottom: 2rem;
+}
+.promociones ul {
+  margin: .2rem;
+}
+.promociones ul li {
+  border-top: 4px double var(--secundario);
+  border-radius: unset;
+}
+
+/*** Bebidas ***/
+.bebidas {
+  border-radius: 3rem;
+  padding: 1rem;
+}
+.bebidas > div  {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 321px) {
+  .bebidas > div  {
+    text-align: center;
+    grid-template-columns: 1fr!important;
   }
 }
-@media (min-width: 992px) {
-  .bebidas {
-    margin: 0 30%;
+.bebidas ul {
+  padding: 0;
+}
+.bebidas ul li {
+  padding: 1rem;
+}
+.bebidas h4 {
+  font-size: 1.6rem;
+}
+.bebidas h3,
+.bebidas h2 {
+  margin: 1rem;
+  text-align: center;
+  grid-column: 1/-1;
+}
+.right {
+  border-right: 2px solid rgb(46, 27, 17);
+}
+@media (max-width: 321px) {
+  .right {
+    border-right: none;
   }
 }
 .sin-alcohol {
-  background-color: rgba(61, 35, 22, 0.8);
-  padding: 2rem;
-  border-radius: 3rem 0 3rem 0;
-  margin-bottom: 2rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: space-between;
-  align-items: center;
-  column-gap: 2rem;
+  background-color: var(--primarioTransparente);
+  margin-bottom: 3rem;
 }
-.sin-alcohol h2,
-.sin-alcohol h3,
-.con-alcohol h3 {
-  grid-column: 1/-1;
+.sin-alcohol h4,
+.con-alcohol span {
+  color: var(--terciario);
+  margin-bottom: 1rem;
 }
-.sin-alcohol ul,
-.con-alcohol ul {
-  padding: 0;
-}
-.sin-alcohol ul li h4,
-.con-alcohol ul li h4 {
-  margin: 0;
-  padding-bottom: 1rem;
-}
-.right {
-  border-right: 2px solid rgb(61, 35, 22);
+.sin-alcohol span {
+  color: var(--secundario);
 }
 .con-alcohol {
-  background-color: rgba(209, 160, 100, 0.8);
-  padding: 2rem;
-  border-radius: 0 3rem 0 3rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 2rem;
+  background-color: var(--secundarioTransparente);
+}
+.con-alcohol h4,
+.con-alcohol h3 {
+  color: var(--primario);
 }
 
-/* FORMULARIO CONTACTO */
-.formulario-main {
+/** Inicio Sesion **/
+.formulario {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  text-align: center;
 }
-.formulario-main h3 {
-  font-size: 4rem;
+.contenedor-formulario { 
+  width: 100%;
+  height: 60vh;
+  margin-top: 5rem;
+}
+@media (min-width: 768px) {
+  .contenedor-formulario {
+    width: 60%;
+    height: 30vh;
+    margin: 0;
+  }
+}
+
+/** ADMIN CARTA **/
+.edit-carta {
+  background-color: #C2185B;
+  color: #000000;
+  width: 100vw;
+}
+.edit-carta h1 {
+  text-align: center;
+  font-size: 3.6rem;
+  margin: 3rem;
+  color: white;
+}
+.edit-seccion {
+  padding-top: 1rem;
+  background-color: #FFC107;
+}
+@media (min-width: 768px) {
+  .edit-seccion {
+    padding: 3rem;
+    border-radius: 5rem;
+  }
+}
+.edit-seccion ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr repeat(3, 1fr);
+  column-gap: 2rem;
+  font-size: 2rem;
+  padding-left: 0;
+}
+@media (min-width: 768px) {
+  .edit-seccion ul {
+    padding-left: 4rem;
+  }
+}
+.edit-seccion span,
+.edit-seccion a {
+  display: block;
+}
+.edit-seccion a i {
+  font-size: 3rem;
+  color: white;
 }

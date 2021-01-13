@@ -13,7 +13,6 @@ if(isset($_POST['login-admin'])){
             $existe = $stmt->fetch();
             if($existe){
                 if(password_verify($password, $password_admin)){
-                    session_start();
                     $_SESSION['usuario'] = $usuario_admin;
                     $_SESSION['id'] = $id_admin;
                     $respuesta = array(

@@ -1,7 +1,9 @@
 <?php
 include_once 'funciones/funciones.php';
 $usuario = $_POST['usuario'];
+$nombre = $_POST['nombre'];
 $password = $_POST['password'];
+$id_registro = $_POST['id_registro'];
 
 if(isset($_POST['login-admin'])){
     try {
@@ -13,8 +15,9 @@ if(isset($_POST['login-admin'])){
             $existe = $stmt->fetch();
             if($existe){
                 if(password_verify($password, $password_admin)){
+                    session_start();
                     $_SESSION['usuario'] = $usuario_admin;
-                    $_SESSION['id'] = $id_admin;
+                    $_SESSION['id'] = $id;
                     $respuesta = array(
                         'respuesta' => 'exito',
                         'usuario' => $usuario_admin
